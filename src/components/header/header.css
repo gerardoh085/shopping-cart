@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.header-container{
+    border: 1px solid white;
+}
+.header-item-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 1em;
+}
+.logo{
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+}
+.path-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 0.5;
+}
+
+
+@media screen and (max-width: 360px) {
+    .header-item-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

@@ -1,44 +1,46 @@
 import React, { useEffect, useState } from "react";
 import "./shop.css";
+import ShoppingCart from "../shoppingcart/ShoppingCart";
+import { Link } from "react-router-dom";
 
-const useProductURL = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => {
-        if (res.statusCode >= 400) {
-          throw new Error("server error");
-        }
-        return res.json();
-      })
-      .then((items) => {
-        const modifiedData = items.map((item) => {
-          if (!item.quantity) {
-            item.quantity = 0;
-          }
-          return item;
-        });
-        setProducts(modifiedData);
-        setFilteredData(modifiedData);
-      })
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
-  }, []);
-  console.log(products);
-  return {
-    products,
-    setProducts,
-    filteredData,
-    setFilteredData,
-    error,
-    loading,
-  };
-};
+// const useProductURL = () => {
+//   const [products, setProducts] = useState([]);
+//   const [filteredData, setFilteredData] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   useEffect(() => {
+//     fetch("https://fakestoreapi.com/products", { cors: true })
+//       .then((res) => {
+//         if (res.statusCode >= 400) {
+//           throw new Error("server error");
+//         }
+//         return res.json();
+//       })
+//       .then((items) => {
+//         const modifiedData = items.map((item) => {
+//           if (!item.quantity) {
+//             item.quantity = 0;
+//           }
+//           return item;
+//         });
+//         setProducts(modifiedData);
+//         setFilteredData(modifiedData);
+//       })
+//       .catch((error) => setError(error))
+//       .finally(() => setLoading(false));
+//   }, []);
+//   console.log(products);
+//   return {
+//     products,
+//     setProducts,
+//     filteredData,
+//     setFilteredData,
+//     error,
+//     loading,
+//   };
+// };
 
-const Shop = () => {
+const Shop = ({ productData }) => {
   const handleNegativeBtn = (e, itemId) => {
     const updatedData = products.map((item) => {
       if (item.id === itemId) {
@@ -62,19 +64,6 @@ const Shop = () => {
     });
     setProducts(updatedData);
     setFilteredData(updatedDataFiltered);
-    // setFilteredData((prevData) => {
-    //   const updatedData = prevData.map((item) => {
-    //     if (item.id === itemId) {
-    //       if (item.quantity <= 0) {
-    //         return { ...item, quantity: 0 };
-    //       } else {
-    //         return { ...item, quantity: item.quantity - 1 };
-    //       }
-    //     }
-    //     return item;
-    //   });
-    //   return updatedData;
-    // });
   };
   const handleAddBtn = (itemId) => {
     const updatedQuantity = products.map((item) => {
@@ -115,7 +104,7 @@ const Shop = () => {
     setFilteredData,
     error,
     loading,
-  } = useProductURL();
+  } = productData;
 
   if (error) {
     return <p>A network error was encountered</p>;

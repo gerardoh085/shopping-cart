@@ -2,9 +2,16 @@
     padding: 0;
     margin: 0;
 }
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
 .header-container{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     padding: 1em;
+    border-bottom: 1px solid grey;
 
 }
 .title{
@@ -28,7 +35,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    flex: 0.5;
+    /* flex: 0.5; */
+    gap: 2em;
     /* gap: 4em; */
 }
 .paths{
@@ -55,6 +63,15 @@ align-items: center;
 text-align: center;
 
 */
+.logo-svg{
+    padding-right: 0.5em;
+    width: 50px;
+    height: 35px;
+    fill: white;
+    
+    /* display: flex; */
+
+}
 .cart-container{
     display: flex;
     flex-wrap: wrap;
@@ -75,11 +92,83 @@ text-align: center;
     /* text-align: center; */
 }
 
+.invis{
+    opacity: 0;
+    display: none;
+}
+.invis-container{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    /* display: none; */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    padding: 20px;
+    
+}
+.dropdown-menu{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: end;
+    padding: 1em;
+}
+.item-link-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* gap: 2em; */
+    padding-top: 2em;
+    
+}
+.dropdown-icon{
+    width: 50px;
+    height: 25px;
+}
+.link-nav{
+    text-decoration: none !important;
+    color: white !important;
+    padding: 1.5em;
+    width: 100%;
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+}
+.link-nav:hover{
+    text-decoration: underline !important;
+    background-color: #222222;
+}
+
+@media screen and (max-width: 600px) {
+    .invis{
+        opacity: 1;
+        display: block;
+
+    }
+    .path-items,.cart-container{
+        display: none;
+        opacity: 0;
+    }
+    .header-item-container{
+        display: flex;
+        gap: 2em;
+        justify-content: space-between;
+    }
+    
+}
+
 @media screen and (max-width: 360px) {
     .header-item-container{
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+        text-align: center;
     }
 }

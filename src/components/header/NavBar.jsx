@@ -1,19 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
 import { Link, useParams } from "react-router-dom";
-import { BiShoppingBag } from "react-icons/Bi";
+import { BsCart4 } from "react-icons/Bs";
+import { GiClothes } from "react-icons/Gi";
+import { FaShoppingBag } from "react-icons/fa";
+import { HiOutlineMenu } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 function NavBar({ productData }) {
+  const [dropdown, setDropdown] = useState(false);
   const { products } = productData;
-  console.log(products);
   const ItemQuantity = products.reduce((acc, item) => acc + item.quantity, 0);
-  console.log(ItemQuantity);
+  const HandleDropDown = () => {
+    return (
+      <div className="invis-container">
+        <div className="dropdown-menu">
+          <RxCross2
+            className="dropdown-icon"
+            onClick={() => setDropdown((prev) => (prev = !prev))}
+          />
+        </div>
+        <div className="item-link-list">
+          <Link
+            className="link-nav"
+            onClick={() => setDropdown(false)}
+            to={"/"}
+          >
+            Home
+          </Link>
+          <Link
+            className="link-nav"
+            onClick={() => setDropdown(false)}
+            to={"/shop"}
+          >
+            Shop
+          </Link>
+          <Link
+            className="link-nav"
+            onClick={() => setDropdown(false)}
+            to={"/about"}
+          >
+            About
+          </Link>
+          <Link
+            className="link-nav"
+            onClick={() => setDropdown(false)}
+            to={"/shoppingcart"}
+          >
+            Shopping Cart
+          </Link>
+
+          {/* <div>Home</div>
+          <div>Shop</div>
+          <div>About</div>
+          <div>Shopping Cart</div> */}
+        </div>
+      </div>
+    );
+  };
+  console.log(dropdown);
   return (
     <>
       <header className="header-container">
         {/* logo/icon */}
         <div className="header-item-container">
           <div className="logo">
-            <h4 className="title">Fake Store API</h4>
+            <FaShoppingBag className="logo-svg"></FaShoppingBag>
+
+            <h4 className="title"> Fake Store API</h4>
           </div>
           <div className="path-items">
             <div>
@@ -34,9 +87,16 @@ function NavBar({ productData }) {
           </div>
           <div className="cart-container">
             <Link to={"/shoppingcart"}>
-              <BiShoppingBag className="icon" />
+              <BsCart4 className="icon" />
             </Link>
             {` (${ItemQuantity})`}
+          </div>
+          <div className="dropdown-lines invis">
+            <HiOutlineMenu
+              className="dropdown-icon"
+              onClick={() => setDropdown((prev) => (prev = !prev))}
+            />
+            {dropdown === true ? <HandleDropDown></HandleDropDown> : <></>}
           </div>
         </div>
       </header>

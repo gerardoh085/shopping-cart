@@ -12,7 +12,6 @@ const ShoppingCart = ({ productData }) => {
     loading,
   } = productData;
 
-
   const hasItemsInCart = products.some((item) => item.quantity > 0);
 
   const handleRemoval = (itemId) => {
@@ -152,7 +151,7 @@ const ShoppingCart = ({ productData }) => {
                           >
                             -
                           </button>
-                          <p className="item-num">{item.quantity}</p>
+                          <div className="item-num">{item.quantity}</div>
                           <button
                             className="btn_num"
                             onClick={() => {
@@ -193,9 +192,13 @@ const ShoppingCart = ({ productData }) => {
             <p>${handleTotalPrice}</p>
           </div>
           <div className="pay-container">
-            <Link to={"/"} onClick={handlePayment}>
-              <button className="btn-pay">Continue to Checkout</button>
-            </Link>
+            {/* <Link className="btn-container" to={"/"} onClick={handlePayment}> */}
+            <button className="btn-pay">
+              <Link className="btn-continue" onClick={handlePayment} to={"/"}>
+                Continue to Checkout
+              </Link>
+            </button>
+            {/* </Link> */}
           </div>
           {/* <div className="pay-container">
             <button>Proceed to purchase</button>

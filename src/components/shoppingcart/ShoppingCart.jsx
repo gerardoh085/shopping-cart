@@ -169,11 +169,25 @@ const ShoppingCart = ({ productData }) => {
             })}
           </>
         ) : (
-          <>
-            <div> No items in cart</div>
-          </>
+          <></>
         )}
       </div>
+      {hasItemsInCart === false && (
+        <div className="no-cart-items">
+          <div className="no-items-box">
+            <div className="no-items-desc">
+              Your shopping cart is currently empty. Explore our store and
+              discover a wide range of clothing, accessories, and more. Start
+              shopping now and fill your cart with stylish items!
+            </div>
+            <div className="btn-shop">
+              <Link className="linkBtn" to={"/shop"}>
+                <button className="shopBtn">Shop Now</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
       {hasItemsInCart && (
         <div className="user-pay-info">
           <div className="discounts">
@@ -193,11 +207,11 @@ const ShoppingCart = ({ productData }) => {
           </div>
           <div className="pay-container">
             {/* <Link className="btn-container" to={"/"} onClick={handlePayment}> */}
-            <button className="btn-pay">
-              <Link className="btn-continue" onClick={handlePayment} to={"/"}>
-                Continue to Checkout
-              </Link>
-            </button>
+
+            <Link className="btn-continue" onClick={handlePayment} to={"/"}>
+              <button className="btn-pay">Continue to Checkout</button>
+            </Link>
+
             {/* </Link> */}
           </div>
           {/* <div className="pay-container">

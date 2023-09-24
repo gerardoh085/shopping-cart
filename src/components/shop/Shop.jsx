@@ -97,6 +97,9 @@ const Shop = ({ productData }) => {
       setFilteredData(filteredItems);
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const {
     products,
     setProducts,

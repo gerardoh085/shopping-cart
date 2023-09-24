@@ -7,7 +7,7 @@ import NavBar from "./components/header/NavBar";
 import { useParams } from "react-router-dom";
 import Shop from "./components/shop/Shop";
 import ShoppingCart from "./components/shoppingcart/ShoppingCart";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import About from "./components/about/About";
 
 const useProductURL = () => {

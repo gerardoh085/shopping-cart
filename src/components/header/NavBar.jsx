@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./header.css";
 import { Link, useParams } from "react-router-dom";
-import { BsCart4 } from "react-icons/Bs";
-import { GiClothes } from "react-icons/Gi";
-import { FaShoppingBag } from "react-icons/fa";
-import { HiOutlineMenu } from "react-icons/hi";
-import { RxCross2 } from "react-icons/rx";
+
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+import CloseIcon from "@mui/icons-material/Close";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+
 function NavBar({ productData }) {
   const [dropdown, setDropdown] = useState(false);
   const { products } = productData;
@@ -14,10 +15,10 @@ function NavBar({ productData }) {
     return (
       <div className="invis-container">
         <div className="exit-icon-container">
-          <RxCross2
+          <CloseIcon
             className="dropdown-icon exit-icon"
             onClick={() => setDropdown((prev) => (prev = !prev))}
-          ></RxCross2>
+          ></CloseIcon>
         </div>
         {/* <div className="dropdown-menu">
           
@@ -66,7 +67,7 @@ function NavBar({ productData }) {
         {/* logo/icon */}
         <div className="header-item-container">
           <div className="logo">
-            <FaShoppingBag className="logo-svg"></FaShoppingBag>
+            <ShoppingBagIcon className="logo-svg"></ShoppingBagIcon>
 
             <div className="title"> Fake Store API</div>
           </div>
@@ -89,12 +90,12 @@ function NavBar({ productData }) {
           </div>
           <div className="cart-container">
             <Link to={"/shoppingcart"}>
-              <BsCart4 className="icon" />
+              <AddShoppingCartIcon className="icon" />
             </Link>
             {` (${ItemQuantity})`}
           </div>
           <div className="dropdown-lines invis">
-            <HiOutlineMenu
+            <DensityMediumIcon
               className="dropdown-icon"
               onClick={() => setDropdown((prev) => (prev = !prev))}
             />

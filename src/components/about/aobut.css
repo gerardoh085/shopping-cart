@@ -35,13 +35,13 @@
     color: rgb(255, 79, 31);
 }
 .github{
-    width: 60px;
-    height: 60px;
-    transition: all 0.2s linear;
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s linear;
-    -ms-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
+    width: 50px !important;
+    height: 50px !important;
+    transition: all 0.2s linear !important;
+    -webkit-transition: all 0.2s linear !important;
+    -moz-transition: all 0.2s linear !important;
+    -ms-transition: all 0.2s linear !important;
+    -o-transition: all 0.2s linear !important;
 }
 .github:hover{
     transform: scale(1.1);

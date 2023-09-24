@@ -1,6 +1,6 @@
 import React from "react";
 import "./aobut.css";
-import { BsGithub } from "react-icons/Bs";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const About = () => {
   return (
@@ -29,7 +29,7 @@ const About = () => {
             target="_blank"
             className="githubLinnk"
           >
-            <BsGithub className="github"></BsGithub>
+            <GitHubIcon className="github"></GitHubIcon>
           </a>
         </div>
       </div>

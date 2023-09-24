@@ -68,10 +68,10 @@ text-align: center;
 
 */
 .logo-svg{
-    padding-right: 0.5em;
-    width: 50px;
-    height: 35px;
-    fill: white;
+    padding-right: 0.5em !important;
+    width: 50px !important;
+    height: 35px !important;
+    fill: white !important;
     
     /* display: flex; */
 
@@ -82,14 +82,15 @@ text-align: center;
     align-items: center;
     
 }
+
 .icon{
     /* width: 2em;
     height: 1.5em; */
     display: flex;
     flex-direction: row;
-    fill: white;
-    width: 30px;
-    height: 24px;
+    fill: white !important;
+    width: 30px !important;
+    height: 24px !important;
 
     /* align-items: flex-start;
     justify-content: flex-start; */

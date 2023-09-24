@@ -46,9 +46,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light dark !important;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424 !important;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -61,14 +61,19 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424 !important;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 1em !important;
+  box-sizing: border-box;
 }
+
 
 
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547 !important;
+  background-color: #242424 !important;
   }
   a:hover {
     color: #747bff;

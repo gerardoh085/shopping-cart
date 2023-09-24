@@ -13,12 +13,15 @@ function NavBar({ productData }) {
   const HandleDropDown = () => {
     return (
       <div className="invis-container">
-        <div className="dropdown-menu">
+        <div className="exit-icon-container">
           <RxCross2
-            className="dropdown-icon"
+            className="dropdown-icon exit-icon"
             onClick={() => setDropdown((prev) => (prev = !prev))}
-          />
+          ></RxCross2>
         </div>
+        {/* <div className="dropdown-menu">
+          
+        </div> */}
         <div className="item-link-list">
           <Link
             className="link-nav"
@@ -57,7 +60,6 @@ function NavBar({ productData }) {
       </div>
     );
   };
-  console.log(dropdown);
   return (
     <>
       <header className="header-container">
@@ -66,7 +68,7 @@ function NavBar({ productData }) {
           <div className="logo">
             <FaShoppingBag className="logo-svg"></FaShoppingBag>
 
-            <h4 className="title"> Fake Store API</h4>
+            <div className="title"> Fake Store API</div>
           </div>
           <div className="path-items">
             <div>
